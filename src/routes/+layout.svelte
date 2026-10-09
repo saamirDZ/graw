@@ -93,12 +93,6 @@
         </nav>
         <div class="actions">
             <button aria-label="Search" class="icon-btn">⌕</button>
-            <a
-                href="/dashboard"
-                aria-label="Account"
-                class="icon-btn"
-                style="text-decoration:none">♙</a
-            >
             <button aria-label="Bag" class="icon-btn" onclick={openBag}>
                 ♧
                 <span class="bag-count">{cartCount}</span>
