@@ -24,7 +24,7 @@
             <div>
                 <h3>Order Summary</h3>
                 <div
-                    style="background: #f9f9f9; padding: 20px; border-radius: 8px;"
+                    style="background: #000000; padding: 20px; border-radius: 8px;
                 >
                     {#each $cart as item}
                         <div
