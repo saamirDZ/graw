@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graw Store — Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page">
+
+  <div class="admin-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <a class="admin-brand" href="index.html">
+        <span>GRAW</span>
+        <small>STORE</small>
+      </a>
+
+      <div class="admin-label">MANAGEMENT</div>
+
+      <nav class="admin-nav">
+        <a href="#dashboard" class="active">
+          <span class="nav-icon">⌂</span>
+          Dashboard
+        </a>
+        <a href="#products">
+          <span class="nav-icon">◫</span>
+          Products
+        </a>
+        <a href="#add-product">
+          <span class="nav-icon">＋</span>
+          Add Product
+        </a>
+      </nav>
+
+      <div class="admin-sidebar-bottom">
+        <div class="admin-status">
+          <span></span>
+          Store Online
+        </div>
+        <a href="index.html" class="store-link">← View Store</a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="admin-content">
+
+      <header class="admin-topbar">
+        <div>
+          <span class="admin-kicker">GRAW STORE / ADMIN</span>
+          <h1>Store Dashboard</h1>
+        </div>
+        <div class="admin-user">
+          <div class="admin-avatar">G</div>
+          <div>
+            <strong>Owner</strong>
+            <small>Store Manager</small>
+          </div>
+        </div>
+      </header>
+
+      <section id="dashboard" class="admin-section">
+
+        <!-- STAT CARDS -->
+        <div class="admin-stats">
+          <div class="admin-stat">
+            <div class="stat-icon">◫</div>
+            <div>
+              <small>Total Products</small>
+              <strong id="statProducts">0</strong>
+            </div>
+          </div>
+
+          <div class="admin-stat">
+            <div class="stat-icon">♂</div>
+            <div>
+              <small>Men's Collection</small>
+              <strong id="statMen">0</strong>
+            </div>
+          </div>
+
+          <div class="admin-stat">
+            <div class="stat-icon">♀</div>
+            <div>
+              <small>Women's Collection</small>
+              <strong id="statWomen">0</strong>
+            </div>
+          </div>
+
+          <div class="admin-stat">
+            <div class="stat-icon">●</div>
+            <div>
+              <small>Store Status</small>
+              <strong class="online-text">Online</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUCTS -->
+        <section id="products" class="admin-card">
+          <div class="admin-card-header">
+            <div>
+              <span class="section-kicker">CATALOG</span>
+              <h2>Products</h2>
+              <p>Manage the watches displayed in your customer store.</p>
+            </div>
+            <a href="#add-product" class="admin-primary">＋ Add Product</a>
+          </div>
+
+          <div class="product-toolbar">
+            <div class="admin-search">
+              <span>⌕</span>
+              <input id="ownerSearch" type="search" placeholder="Search products...">
+            </div>
+            <select id="ownerCategoryFilter">
+              <option value="all">All collections</option>
+              <option value="men">Men</option>
+              <option value="women">Women</option>
+            </select>
+          </div>
+
+          <div id="ownerProductList" class="admin-product-list"></div>
+        </section>
+
+        <!-- ADD PRODUCT -->
+        <section id="add-product" class="admin-card add-product-card">
+          <div class="admin-card-header">
+            <div>
+              <span class="section-kicker">INVENTORY</span>
+              <h2>Add New Product</h2>
+              <p>Create a new watch and publish it to the store.</p>
+            </div>
+          </div>
+
+          <form id="ownerProductForm" class="professional-form">
+
+            <div class="form-section">
+              <h3>Basic Information</h3>
+              <div class="form-grid">
+                <label>
+                  Product Name
+                  <input name="name" required placeholder="Graw Classic">
+                </label>
+
+                <label>
+                  Category
+                  <select name="category">
+                    <option value="men">Men's Watches</option>
+                    <option value="women">Women's Watches</option>
+                  </select>
+                </label>
+
+                <label>
+                  Price (USD)
+                  <input name="price" type="number" min="1" required placeholder="399">
+                </label>
+
+                <label>
+                  Product Tag
+                  <select name="tag">
+                    <option>New</option>
+                    <option>Bestseller</option>
+                    <option>Luxury</option>
+                    <option>Classic</option>
+                    <option>Premium</option>
+                  </select>
+                </label>
+
+                <label class="full-field">
+                  Product Image URL
+                  <input name="img" type="url" required placeholder="https://example.com/watch.jpg">
+                  <small>Use a direct image URL for the product photo.</small>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>Product Specifications</h3>
+              <div class="form-grid">
+                <label>
+                  Movement
+                  <select name="movement">
+                    <option>Automatic</option>
+                    <option>Quartz</option>
+                    <option>Chronograph</option>
+                  </select>
+                </label>
+
+                <label>
+                  Case Material
+                  <input name="caseMaterial" placeholder="Stainless Steel">
+                </label>
+
+                <label>
+                  Strap
+                  <input name="strap" placeholder="Leather Strap">
+                </label>
+
+                <label>
+                  Water Resistance
+                  <input name="water" placeholder="5 ATM (50 meters)">
+                </label>
+
+                <label>
+                  Case Size
+                  <input name="size" placeholder="40 mm">
+                </label>
+
+                <label>
+                  Crystal
+                  <input name="crystal" placeholder="Sapphire Crystal">
+                </label>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="reset" class="admin-secondary">Clear Form</button>
+              <button type="submit" class="admin-primary">Publish Product →</button>
+            </div>
+          </form>
+
+          <div id="ownerMessage" class="admin-message"></div>
+        </section>
+
+      </section>
+    </main>
+  </div>
+
+  <script>
+    /* Owner dashboard UI */
+    document.addEventListener("DOMContentLoaded", () => {
+      const originalSetup = window.setupOwner;
+      if (typeof originalSetup === "function") originalSetup();
+
+      const search = document.querySelector("#ownerSearch");
+      const category = document.querySelector("#ownerCategoryFilter");
+
+      function refreshStats() {
+        try {
+          const products = JSON.parse(localStorage.getItem("grawStoreProducts")) || [];
+          const list = products.length ? products : [];
+          document.querySelector("#statProducts").textContent = list.length;
+          document.querySelector("#statMen").textContent = list.filter(p => p.category === "men").length;
+          document.querySelector("#statWomen").textContent = list.filter(p => p.category === "women").length;
+        } catch {
+          document.querySelector("#statProducts").textContent = "0";
+        }
+      }
+
+      function filterRows() {
+        const query = (search?.value || "").toLowerCase();
+        const selected = category?.value || "all";
+
+        document.querySelectorAll(".admin-product-row").forEach(row => {
+          const text = row.textContent.toLowerCase();
+          const rowCategory = row.dataset.category;
+          row.style.display =
+            text.includes(query) && (selected === "all" || rowCategory === selected)
+              ? ""
+              : "none";
+        });
+      }
+
+      const observer = new MutationObserver(() => {
+        refreshStats();
+        document.querySelectorAll("#ownerProductList .owner-product").forEach(row => {
+          row.classList.add("admin-product-row");
+          const info = row.querySelector(".owner-product-info span");
+          row.dataset.category = info?.textContent.toLowerCase().includes("women") ? "women" : "men";
+        });
+        filterRows();
+      });
+
+      const list = document.querySelector("#ownerProductList");
+      if (list) observer.observe(list, {childList:true, subtree:true});
+
+      search?.addEventListener("input", filterRows);
+      category?.addEventListener("change", filterRows);
+
+      refreshStats();
+      setTimeout(filterRows, 100);
+    });
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>

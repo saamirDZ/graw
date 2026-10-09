@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Women’s Watches — Graw Store
+  </title>
+  <link href="styles.css" rel="stylesheet"/>
+ </head>
+ <body data-page="women">
+  <header class="topbar">
+   <div class="container nav">
+    <a class="logo" href="index.html">
+     Graw Store
+     <small>
+      TIMELESS ELEGANCE
+     </small>
+    </a>
+    <nav class="links">
+     <a href="index.html">
+      Home
+     </a>
+     <a class="" href="men.html">
+      Men's Watches
+     </a>
+     <a class="active" href="women.html">
+      Women's Watches
+     </a>
+     <a href="index.html#story">
+      About
+     </a>
+     <a href="index.html#contact">
+      Contact
+     </a>
+    </nav>
+    <div class="actions">
+     <button class="icon-btn">
+      ⌕
+     </button>
+     <button class="icon-btn">
+      ♙
+     </button>
+     <button class="icon-btn" id="bagOpen">
+      ♧
+      <span class="bag-count" data-bag-count="">
+       0
+      </span>
+     </button>
+     <button class="icon-btn menu-btn" id="menuBtn">
+      ☰
+     </button>
+    </div>
+   </div>
+  </header>
+  <nav class="mobile-nav" id="mobileNav">
+   <a href="index.html">
+    Home
+   </a>
+   <a href="men.html">
+    Men's Watches
+   </a>
+   <a href="women.html">
+    Women's Watches
+   </a>
+  </nav>
+  <section class="catalog-hero women">
+   <div class="container">
+    <h1>
+     Women’s Watches
+    </h1>
+    <p>
+     Graceful designs for every moment. Elegance, confidence and timeless beauty.
+    </p>
+    <small>
+     Home　/　Women’s Watches
+    </small>
+   </div>
+  </section>
+  <main class="container catalog">
+   <aside class="filters">
+    <h3>
+     Filter
+    </h3>
+    <div class="filter-group">
+     <h4>
+      Price Range
+     </h4>
+     <input max="700" min="200" style="width:100%;accent-color:#f0bb65" type="range" value="700"/>
+     <small>
+      $0　　　　　　　　 $0 — $1,000+
+     </small>
+    </div>
+    <div class="filter-group">
+     <h4>
+      Brand
+     </h4>
+     <label class="check">
+      <input type="checkbox"/>
+      Graw Store
+     </label>
+     <label class="check">
+      <input type="checkbox"/>
+      Rolex
+     </label>
+     <label class="check">
+      <input type="checkbox"/>
+      Tissot
+     </label>
+     <label class="check">
+      <input type="checkbox"/>
+      Seiko
+     </label>
+     <label class="check">
+      <input type="checkbox"/>
+      Citizen
+     </label>
+    </div>
+    <div class="filter-group">
+     <h4>
+      Case Material
+     </h4>
+     <label class="check">
+      <input type="checkbox"/>
+      Stainless Steel
+     </label>
+     <label class="check">
+      <input type="checkbox"/>
+      Gold
+     </label>
+     <label class="check">
+      <input type="checkbox"/>
+      Titanium
+     </label>
+     <label class="check">
+      <input type="checkbox"/>
+      Ceramic
+     </label>
+    </div>
+    <div class="filter-group">
+     <h4>
+      Strap
+     </h4>
+     <label class="check">
+      <input type="checkbox"/>
+      Leather
+     </label>
+     <label class="check">
+      <input type="checkbox"/>
+      Stainless Steel
+     </label>
+     <label class="check">
+      <input type="checkbox"/>
+      Mesh
+     </label>
+     <label class="check">
+      <input type="checkbox"/>
+      Rubber
+     </label>
+    </div>
+    <button class="gold-btn apply">
+     Apply Filters
+    </button>
+    <div class="reset">
+     Reset
+    </div>
+   </aside>
+   <section>
+    <div class="catalog-top">
+     <div class="chips">
+      <button class="chip active" data-filter-tag="all">
+       All
+      </button>
+      <button class="chip" data-filter-tag="classic">
+       Classic
+      </button>
+      <button class="chip" data-filter-tag="automatic">
+       Automatic
+      </button>
+      <button class="chip" data-filter-tag="quartz">
+       Quartz
+      </button>
+      <button class="chip" data-filter-tag="luxury">
+       Luxury
+      </button>
+      <button class="chip" data-filter-tag="sport">
+       Sport
+      </button>
+     </div>
+     <select class="sort" id="sortSelect">
+      <option value="featured">
+       Sort by: Featured
+      </option>
+      <option value="price-low">
+       Price: Low to High
+      </option>
+      <option value="price-high">
+       Price: High to Low
+      </option>
+     </select>
+    </div>
+    <div class="product-grid" id="productGrid">
+    </div>
+   </section>
+  </main>
+  <div class="bag-backdrop" id="bagBackdrop">
+  </div>
+  <aside class="bag-drawer" id="bagDrawer">
+   <div class="bag-head">
+    <h2>
+     Your Bag
+    </h2>
+    <button class="bag-close" id="bagClose">
+     ×
+    </button>
+   </div>
+   <div class="bag-items" id="bagItems">
+   </div>
+   <div class="bag-summary">
+    <div class="sumline">
+     <span>
+      Subtotal
+     </span>
+     <b id="bagSubtotal">
+      $0
+     </b>
+    </div>
+    <div class="sumline">
+     <span>
+      Shipping
+     </span>
+     <b>
+      Free
+     </b>
+    </div>
+    <div class="sumline total">
+     <span>
+      Total
+     </span>
+     <b id="bagTotal">
+      $0
+     </b>
+    </div>
+    <button class="gold-btn checkout">
+     Checkout
+    </button>
+   </div>
+  </aside>
+  <div class="toast" id="toast">
+  </div>
+  <script src="app.js">
+  </script>
+ </body>
+</html>
