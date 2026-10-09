@@ -1,7 +1,12 @@
 // @ts-nocheck
 import { createClient } from '@supabase/supabase-js';
-import fs from 'fs';
+import { env } from '$env/dynamic/private';
 import WebSocket from 'ws';
+import * as dotenv from 'dotenv';
+
+if (typeof process !== 'undefined') {
+    dotenv.config(); // Ensure local .env is loaded into process.env if SvelteKit misses it
+}
 
 if (typeof globalThis.WebSocket === 'undefined') {
     globalThis.WebSocket = WebSocket;
@@ -10,33 +15,15 @@ if (typeof globalThis.WebSocket === 'undefined') {
 let client = null;
 let _adminPassword = null;
 
-function loadEnv() {
-    let envObj = {};
-    try {
-        const envContent = fs.readFileSync('/home/ramy/Code/repos/graw/.env', 'utf-8');
-        envContent.split('\n').forEach(line => {
-            const match = line.match(/^([^=]+)=(.*)$/);
-            if (match) {
-                envObj[match[1].trim()] = match[2].trim();
-            }
-        });
-    } catch (err) {
-        console.error("Critical error reading .env file", err);
-    }
-    return envObj;
-}
-
 export function getSupabase() {
     if (!client) {
-        const envVars = loadEnv();
-        const url = envVars.SUPABASE_URL;
-        const key = envVars.SUPABASE_SERVICE_ROLE_KEY;
+        const url = env.SUPABASE_URL || (typeof process !== 'undefined' ? process.env.SUPABASE_URL : undefined);
+        const key = env.SUPABASE_SERVICE_ROLE_KEY || (typeof process !== 'undefined' ? process.env.SUPABASE_SERVICE_ROLE_KEY : undefined);
         
         if (url && key) {
             client = createClient(url, key);
         } else {
             console.error("FATAL: Supabase credentials missing! URL:", !!url, "KEY:", !!key);
-            // Fallback just in case
             throw new Error("Supabase credentials missing!");
         }
     }
@@ -45,8 +32,7 @@ export function getSupabase() {
 
 export function getAdminPassword() {
     if (!_adminPassword) {
-        const envVars = loadEnv();
-        _adminPassword = envVars.ADMIN_PASSWORD;
+        _adminPassword = env.ADMIN_PASSWORD || (typeof process !== 'undefined' ? process.env.ADMIN_PASSWORD : undefined);
     }
     return _adminPassword;
 }
