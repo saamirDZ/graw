@@ -35,7 +35,7 @@
                         </div>
                     {/each}
                     <hr
-                        style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;"
+                        style="margin: 20px 0; border: 0; border-top: 1px solid #080808;"
                     />
                     <div
                         style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem;"
